@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Scheduling Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Process Scheduling Simulator</h1>
+            <button id="theme-toggle" class="theme-toggle">
+                <span class="dark-icon">🌙</span>
+                <span class="light-icon">☀️</span>
+            </button>
+        </header>
+
+        <main class="app-content">
+            <div class="card">
+                <h2 class="card-title">How this Works?</h2>
+                <h4 class="card-title">STEP 1- Configure the type of process.</h4>
+                <h4 class="card-title">STEP 2- Add Processes.</h4>
+                <h4 class="card-title">STEP 3- Make changes in Process List Chart as You Wish.</h4>
+                <h4 class="card-title">STEP 4- Run The Simulation.</h4>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Configuration</h2>
+                <div class="form-group">
+                    <label for="algorithm">Scheduling Algorithm</label>
+                    <select id="algorithm" class="form-control">
+                        <option value="fcfs">First Come First Serve (FCFS)</option>
+                        <option value="sjf">Shortest Job First (SJF)</option>
+                        <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+                        <option value="rr">Round Robin (RR)</option>
+                        <option value="priority">Priority Scheduling</option>
+                        <option value="priority_preemptive">Priority Scheduling (Preemptive)</option>
+                    </select>
+                </div>
+                
+                <div id="quantum-container" class="form-group" style="display: none;">
+                    <label for="quantum">Time Quantum</label>
+                    <input type="number" id="quantum" min="1" value="2" class="form-control">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Add Process</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="process-id" placeholder="Process ID" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="arrival-time" placeholder="Arrival Time" min="0" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="burst-time" placeholder="Burst Time" min="1" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="priority" placeholder="Priority" min="1" class="form-control" required>
+                    </div>
+                    <button id="add-process" class="btn btn-primary">Add Process</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Process List</h2>
+                <div class="table-container">
+                    <table id="processes">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Priority</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Processes will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="clear-processes" class="btn btn-danger">Clear All Processes</button>
+            </div>
+
+            <button id="simulate" class="btn btn-accent">Run Simulation</button>
+
+            <div class="card results-card">
+                <h2 class="card-title">Simulation Results</h2>
+                <div class="gantt-chart" id="gantt-chart">
+                    <!-- Gantt chart will be displayed here -->
+                </div>
+                
+                <h3>Process Metrics</h3>
+                <div class="table-container">
+                    <table id="results">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Completion Time</th>
+                                <th>Turnaround Time</th>
+                                <th>Waiting Time</th>
+                                <th>Response Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Results will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Summary Statistics</h3>
+                <div id="summary-stats" class="stats-grid"></div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

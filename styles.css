@@ -1,0 +1,388 @@
+:root {
+    /* Light mode colors */
+    --primary-light: #4361ee;
+    --primary-hover-light: #3a56d4;
+    --accent-light: #7209b7;
+    --danger-light: #f72585;
+    --text-light: #000000;
+    --text-secondary-light: #000000;
+    --bg-light: #c8c8c8;
+    --card-bg-light: #fffafa;
+    --input-bg-light: #e9ecef;
+    --border-light: #dee2e6;
+    
+    /* Dark mode colors */
+    --primary-dark: #4361ee;
+    --primary-hover-dark: #3a56d4;
+    --accent-dark: #7209b7;
+    --danger-dark: #f72585;
+    --text-dark: #CDCCE8;
+    --text-secondary-dark: #adb5bd;
+    --bg-dark: #0d0d0d;
+    --card-bg-dark: #181719;
+    --input-bg-dark: #2d2d2d;
+    --border-dark: #333333;
+    
+    /* Default to light mode */
+    --primary: var(--primary-light);
+    --primary-hover: var(--primary-hover-light);
+    --accent: var(--accent-light);
+    --danger: var(--danger-light);
+    --text: var(--text-light);
+    --text-light: var(--text-secondary-light);
+    --bg: var(--bg-light);
+    --card-bg: var(--card-bg-light);
+    --input-bg: var(--input-bg-light);
+    --border: var(--border-light);
+}
+
+[data-theme="dark"] {
+    --primary: var(--primary-dark);
+    --primary-hover: var(--primary-hover-dark);
+    --accent: var(--accent-dark);
+    --danger: var(--danger-dark);
+    --text: var(--text-dark);
+    --text-light: var(--text-secondary-dark);
+    --bg: var(--bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --input-bg: var(--input-bg-dark);
+    --border: var(--border-dark);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.app-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 10px;
+    width: 100vw;
+    position: relative;
+    left: -191px;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.btn-accent:hover {
+    background-color: #5e08a0;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+    margin-top: 1rem;
+}
+
+.btn-danger:hover {
+    background-color: #e5177b;
+    transform: translateY(-2px);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.light-icon {
+    display: none;
+}
+
+[data-theme="dark"] .dark-icon {
+    display: none;
+}
+
+[data-theme="dark"] .light-icon {
+    display: inline;
+}
+
+/* Enhanced Gantt Chart Styles */
+.gantt-chart {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    overflow-x: auto;
+    background-color: var(--input-bg);
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.gantt-block {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    font-weight: 600;
+    min-width: 40px;
+    border-radius: 4px;
+    margin-right: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.gantt-block:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.gantt-block.idle {
+    background-color: #95a5a6;
+}
+
+.gantt-time {
+    position: absolute;
+    bottom: -25px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.gantt-duration {
+    font-size: 10px;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+.gantt-timeline {
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gantt-timeline-marker {
+    position: absolute;
+    bottom: 0;
+    font-size: 11px;
+    color: var(--text-light);
+    transform: translateX(-50%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-card {
+    background-color: var(--input-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.stat-card h4 {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Responsive additions */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 1rem;
+    }
+    
+    .app-header {
+        left: -1rem;
+        width: calc(100vw + 2rem);
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-row .form-group {
+        width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gantt-chart {
+        height: 60px;
+    }
+    
+    .gantt-block {
+        min-width: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .gantt-duration {
+        display: none;
+    }
+}
+
+/* Smooth transitions */
+body, .card, .form-control, .btn {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.gantt-block {
+    transition: transform 0.2s, background-color 0.3s ease;
+}
